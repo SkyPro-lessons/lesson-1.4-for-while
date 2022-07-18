@@ -9,6 +9,8 @@ public class Main {
         task1();
         task2();
         task3();
+        task4();
+        task5();
     }
 
     /**
@@ -91,4 +93,82 @@ public class Main {
 
         System.out.println();
     }
+
+
+    /**
+     * Задание 4
+     * Необходимо пройти циклом по числам от 1 до 30 включительно и, если число делится на 3 без остатка, вывести ping,
+     *      а если число делится на 5 без остатка, вывести pong.
+     * Если число делится без остатка и на 3, и на 5, необходимо вывести ping pong.
+     * Допускается наличие пустых строк в выводе.
+     * Вывод должен быть следующий:
+     *      1:
+     *      2:
+     *      3: ping
+     *      4:
+     *      5: pong
+     *      6: ping
+     *      7:
+     *      8:
+     *      9: ping
+     *      10: pong
+     *      11:
+     *      12: ping
+     *      13:
+     *      14:
+     *      15: ping pong
+     *      16:
+     *      17:
+     *      18: ping
+     *      19:
+     *      20: pong
+     * Критерии оценки
+     *      – В консоль выводится значение из условия задачи
+     *      – Цикл проходит по значениям и выполняет условие задачи деления цифр на 3 и 5
+     *      – Код написан корректно и без ошибок.
+     */
+    public static void task4() {
+        System.out.println("Task 4");
+        String message;
+        for (int i = 1; i <= 30; i++) {
+            message = "";
+            if (i % 3 == 0) {
+                message += " ping";
+            }
+            if (i % 5 == 0) {
+                message += " pong";
+            }
+
+            System.out.println(i + ":" + message);
+        }
+        System.out.println();
+    }
+
+    /**
+     * ### Задание 5
+     * Вывести первые 10 чисел последовательности Фибоначчи. Последовательность строится по следующему правилу:
+     *      – Каждое следующее число равняется сумме двух предыдущих.
+     * Дано: две целочисленные переменные, первая равна 0, вторая равна 1.
+     *      Эти два числа — первые числа последовательности. Следующие восемь нужно вычислить и вывести.
+     * Должно получиться следующее:
+     *      0 1 1 2 3 5 8 13 21 34
+     */
+    public static void task5() {
+        System.out.println("Task 5");
+        long firstNumber = 0L;
+        long secondNumber = 1L;
+        long temp;
+        int countNumbers = 10;
+
+        System.out.print(firstNumber + " ");
+        for (int i = 1; i < countNumbers; i++) {
+            System.out.print(secondNumber + " ");
+            temp = firstNumber;
+            firstNumber = secondNumber;
+            secondNumber += temp;
+        }
+
+        System.out.println();
+    }
+
 }
