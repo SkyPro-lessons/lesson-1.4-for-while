@@ -1,5 +1,7 @@
 package ru.skypro;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -22,14 +24,13 @@ public class Main {
     public static void task1() {
         System.out.println("Task 1");
 
-        int i = 1;
-        while (i <= 10) {
-            System.out.print(i + " ");
-            i++;
+        int i = 0;
+        while (i < 10) {
+            System.out.print(++i + " ");
         }
         System.out.println();
 
-        for (i = 10; i > 0; i--) {
+        for (; i > 0; i--) {
             System.out.print(i + " ");
         }
         System.out.println();
@@ -50,14 +51,12 @@ public class Main {
      */
     public static void task2() {
         System.out.println("Task 2");
-        int firstFridayMonth = 1;
+        int firstFridayMonth = 3;
         int maxDateInMonth = 31;
         int daysPerWeek = 7;
 
-        for (int currentDate = firstFridayMonth; currentDate <= maxDateInMonth; currentDate++) {
-            if ((currentDate-firstFridayMonth) % daysPerWeek == 0) {
-                System.out.println("Сегодня пятница, " + currentDate + "-е число. Необходимо подготовить отчет.");
-            }
+        for (int currentDate = firstFridayMonth; currentDate <= maxDateInMonth; currentDate += daysPerWeek) {
+            System.out.println("Сегодня пятница, " + currentDate + "-е число. Необходимо подготовить отчет.");
         }
 
         System.out.println();
@@ -78,13 +77,15 @@ public class Main {
      */
     public static void task3() {
         System.out.println("Task 3");
-        int currentYear = 2022;
+        int currentYear = LocalDate.now().getYear();
         int startPeriod = currentYear - 200;
         int finishPeriod = currentYear + 100;
+        int period = 1;
 
-        for (int i = 0; i <= finishPeriod; i++) {
-            if (i >= startPeriod && i % 79 == 0) {
-                System.out.println(i);
+        for (int year = startPeriod; year <= finishPeriod; year = year + period) {
+            if (year % 79 == 0) {
+                System.out.println(year);
+                period = 79;
             }
         }
 
